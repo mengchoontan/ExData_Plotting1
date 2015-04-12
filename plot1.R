@@ -1,0 +1,5 @@
+setwd(“/home/mc/c4/assign1")
+list.files(".")
+mydata <- read.table("household_power_consumption.txt", sep = ";" , header = TRUE)
+mydatasubset = subset(mydata, mydata$Date == "1/2/2007" | mydata$Date == "2/1/2007")
+hist(as.numeric(mydatasubset$Global_active_power), col = "red", main = "Global Active Power", xlab = "Global Active Power (kilowatts)")
