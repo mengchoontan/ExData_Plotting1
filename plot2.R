@@ -1,0 +1,15 @@
+setwd(“/home/mc/c4/assign1")
+list.files(".")
+mydata <- read.table("household_power_consumption.txt", sep = ";" , header = TRUE)
+mydatasubset = subset(mydata, mydata$Date == "1/2/2007" | mydata$Date == "2/1/2007")
+
+with(mydatasubset, plot(Global_active_power, 
+         type = 'l',
+         col = 'black',
+         main = NA,
+         xlab = NA,
+         ylab = "Global Active Power (kilowatts)"
+     )
+     
+dev.copy(png, file = "plot2.png")
+dev.off()
